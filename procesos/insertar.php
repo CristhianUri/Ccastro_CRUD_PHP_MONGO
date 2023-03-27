@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
     include "../db/conexion.php";
     include "../db/Crud.php";
     $Crud = new Crud();
@@ -13,6 +13,7 @@
 
     if ($respuesta ->getInsertedId()) {
         # code...
+        $_SESSION['mensaje_cruf']= 'insert';
         header("location:../index.php");
     } else{
         print_r($respuesta);
