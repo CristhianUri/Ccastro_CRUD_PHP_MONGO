@@ -1,5 +1,14 @@
+<?php 
+
+?>
+
 <?php
-    include "./header.php"
+    include "./db/conexion.php";
+    include "./db/Crud.php";
+    include "./header.php";
+    $crud = new Crud();
+    $id=$_POST['id'];
+    $datos = $crud ->obtenerDocumento($id);
 ?>
 <div class="container">
   <div class="row">
@@ -20,10 +29,10 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><?php echo $datos->paterno;?></td>
+                            <td><?php echo $datos->materno;?></td>
+                            <td><?php echo $datos->nombre;?></td>
+                            <td><?php echo $datos->fecha_nacimiento;?></td>
                         </tr>
                     </tbody>
                 </table>
@@ -31,7 +40,8 @@
                     <p>¿Esta seguro de elimar este registr?</p>
                     <p>Una vez eminado este registro no se podra recuperar</p>
                 </div>
-                <form action="" method="post">
+                <form action="./procesos/eliminar.php" method="post">
+                    <input type="text" hidden name="id" value="<?php echo $datos->_id ?>">
                 <button class="btn btn-danger"><i class="fa-solid fa-user-xmark"></i> Eliminar</button>
                 </form>
             </div>

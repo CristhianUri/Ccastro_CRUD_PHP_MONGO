@@ -36,12 +36,14 @@
                             <td><?php echo $item->nombre?></td>
                             <td><?php echo $item->fecha_nacimiento?></td>
                             <td class="text-center">
-                                <form action="./actualizar.php" method="post">
+                                <form action="./actualizar.php" method="POST">
+                                    
                                     <button class="btn btn-warning"><i class="fa-solid fa-user-pen"></i></button>
                                 </form>
                             </td>
                             <td class="text-center" >
-                                <form action="./eliminar.php" method="post">
+                                <form action="./eliminar.php" method="POST">
+                                <input type="text" hidden value="<?php echo $item ->_id?>" name="id">
                                     <button class="btn btn-danger"><i class="fa-solid fa-user-xmark"></i></button>
                                 </form>
                             </td>
