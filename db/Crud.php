@@ -56,5 +56,24 @@
                 return $th ->getMessage();
             }
         }
+        public function actualiza($id,$datos){
+            try {
+                //code...
+                $conexion = parent :: conectar();
+                $coleccion = $conexion ->personas;
+                $respuesta = $coleccion -> updateOne(
+                    [
+                        "_id" => new MongoDB\BSON\ObjectId($id)
+                    ],
+                    [
+                        '$set'=> $datos
+                    ]
+                    );
+                return $respuesta;
+            } catch (\Throwable $th) {
+                //throw $th;
+                return $th ->getMessage();
+            }
+        }
     }
 ?>

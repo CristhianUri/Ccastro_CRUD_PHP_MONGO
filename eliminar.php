@@ -42,7 +42,7 @@
                 </div>
                 <form action="./procesos/eliminar.php" method="post">
                     <input type="text" hidden name="id" value="<?php echo $datos->_id ?>">
-                <button class="btn btn-danger"><i class="fa-solid fa-user-xmark"></i> Eliminar</button>
+                    <button class="btn btn-danger"><i class="fa-solid fa-user-xmark"></i> Eliminar</button>
                 </form>
             </div>
         </div>
